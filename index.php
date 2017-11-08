@@ -119,16 +119,17 @@ function countdown( elementName, seconds ){
   function updateTimer(){
     msLeft = timerOver - (+new Date);
     if ( msLeft < 1000 ) {
-      // add one to database
-      var pomodoroFinished = true;
-      <?php
-      if (pomodoroFinished) {
-        $date = date('Y-m-d g:i:s');
-        $sql = "insert into pomodoros values('$date');";
-        $status = $dbh->exec($sql);
-      }
-       ?>
 
+      // Do an ajax call instead
+      // https://stackoverflow.com/a/12498905
+
+
+      // // add one to database
+      // <?php
+      //   $date = date('Y-m-d g:i:s');
+      //   $sql = "insert into pomodoros values('$date');";
+      //   $status = $dbh->exec($sql);
+      //  ?>
 
       document.title = "Times Up!"
       var timesPlayed = 0;
