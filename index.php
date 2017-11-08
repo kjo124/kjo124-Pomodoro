@@ -118,8 +118,8 @@ function countdown( elementName, seconds ){
     msLeft = timerOver - (+new Date);
     if ( msLeft < 1000 ) {
       // add one to database
-      <?php 
-      $date = echo date('Y-m-d g:i:s');
+      <?php
+      $date = date('Y-m-d g:i:s');
       $sql = "insert into pomodoros values('$date');";
 			$status = $dbh->exec($sql);
        ?>
