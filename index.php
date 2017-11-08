@@ -39,6 +39,7 @@ document.getElementById("resetBtn").disabled = true;
 </audio>
 
 <?php
+  $dbh = new PDO("sqlite:./pomodoro.db");
 	$pomodoro_num = $dbh->query("SELECT count(*) FROM pomodoros");
 	echo "Number of pomodoros completed: " . $pomodoro_num->fetchColumn() . '<br />';
 ?>
