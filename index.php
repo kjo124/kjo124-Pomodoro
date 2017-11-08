@@ -38,9 +38,6 @@ document.getElementById("resetBtn").disabled = true;
   <source src="chime.mp3" type="audio/mpeg">
 </audio>
 
-<p>
-  testing git 
-</p>
 
 <script>
 var chime = document.getElementById("audio");
