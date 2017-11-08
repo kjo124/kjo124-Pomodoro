@@ -120,12 +120,13 @@ function countdown( elementName, seconds ){
     msLeft = timerOver - (+new Date);
     if ( msLeft < 1000 ) {
       // add one to database
-      <?php
-      $date = date('Y-m-d g:i:s');
-      $sql = "insert into pomodoros values('$date');";
-			$status = $dbh->exec($sql);
-       ?>
-
+      if (msLeft > 0) {
+        <?php
+        $date = date('Y-m-d g:i:s');
+        $sql = "insert into pomodoros values('$date');";
+  			$status = $dbh->exec($sql);
+         ?>
+      }
 
       document.title = "Times Up!"
       var timesPlayed = 0;
