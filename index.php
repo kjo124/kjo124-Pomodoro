@@ -38,6 +38,10 @@ document.getElementById("resetBtn").disabled = true;
   <source src="chime.mp3" type="audio/mpeg">
 </audio>
 
+<?php
+	$pomodoro_num = $dbh->query("SELECT count(*) FROM pomodoros");
+	echo "Number of pomodoros completed: " . $pomodoro_num->fetchColumn() . '<br />';
+?>
 
 <script>
 var chime = document.getElementById("audio");
@@ -113,6 +117,14 @@ function countdown( elementName, seconds ){
   function updateTimer(){
     msLeft = timerOver - (+new Date);
     if ( msLeft < 1000 ) {
+      // add one to database
+      <?php 
+      $date = echo date('Y-m-d g:i:s');
+      $sql = "insert into pomodoros values('$date');";
+			$status = $dbh->exec($sql);
+       ?>
+
+
       document.title = "Times Up!"
       var timesPlayed = 0;
       play();
