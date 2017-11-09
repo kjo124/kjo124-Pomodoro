@@ -10,6 +10,14 @@ body {
 	background-color: #BDDBA3;
 }
 
+table, th, td {
+    text-align: center;
+}
+
+th, td {
+    padding: 5px;
+}
+
 div.jumbotron{
 	background-color: #F6E8B1;
 	width: 100%;

@@ -38,6 +38,48 @@ document.getElementById("resetBtn").disabled = true;
   <source src="chime.mp3" type="audio/mpeg">
 </audio>
 
+<br>
+<br>
+<div class="table">
+<table align="center">
+ <tr>
+   <th>Class</th>
+   <th>Assignment Type</th>
+   <th>Specific Assignment</th>
+ </tr>
+ <tr>
+   <td>
+     <form action="">
+       <select name="classes" onchange="changeClass(this.value)" id="classASDA">
+         <option value=""></option>
+         <option value="CS314">CS314</option>
+         <option value="CS356">CS356</option>
+         <option value="CS370">CS370</option>
+         <option value="CS370">CT320</option>
+         <option value="MKT305">MKT305</option>
+         <option value="Personal">Personal</option>
+       </select>
+     </form>
+   </td>
+   <td>
+     <form action="">
+       <select name="assignmentType" onchange="changeAssignment(this.value)" id="assASDA">
+         <option value=""></option>
+         <option value="Homework">Homework</option>
+         <option value="Quiz">Quiz</option>
+         <option value="Study">Study</option>
+         <option value="Personal">Personal</option>
+         <option value="Other">Other</option>
+       </select>
+     </form>
+   </td>
+   <td>
+     <input type="text" name="specificAssignment" value="" onchange="changeSpecific(this.value)" id="specASDA">
+   </td>
+ </tr>
+</table>
+</div>
+<br>
 
 <p>
 	Number of pomodoros completed: <span id="displayedCount"> ... </span>
@@ -46,10 +88,29 @@ document.getElementById("resetBtn").disabled = true;
 <script>
 var pomodoroBool = false;
 
+var classChosen;
+var assignmentType;
+var specificAssignment;
+
+function changeClass(val) {
+  classChosen = val;
+  console.log("classChosen: "+classChosen);
+}
+
+function changeAssignment(val) {
+  assignmentType = val;
+  console.log("assignmentType: "+assignmentType);
+}
+
+function changeSpecific(val) {
+  specificAssignment = val;
+  console.log("specificAssignment: "+specificAssignment);
+}
+
 // use this function when a pomodoro is started so it gets counted in database
 function thisIsAPomodoro(){
   pomodoroBool = true;
-  startWithPresetTime(1500); // 25min
+  startWithPresetTime(1500); // 1500 // 25min
 }
 
 // display count on start up
@@ -145,11 +206,22 @@ function countdown( elementName, seconds ){
     if ( msLeft < 1000 ) {
       // when a pomodoro is being done:
       if (pomodoroBool) {
+
         $.ajax({
+          // var a = document.getElementById('classASDA').value;
+          // var b = document.getElementById('assASDA').value;
+          // var c = document.getElementById('specASDA').value;
           // add a pomodoro
+          type: "POST",
           url: "databaseAdd.php",
+          data: (
+            {class: document.getElementById('classASDA').value,
+              type: document.getElementById('assASDA').value,
+              assignment: document.getElementById('specASDA').value}),
           // if that succeded
-          success: function(result){
+          success: function( data, result){
+            console.log(data);
+            console.log(result);
             // update the count displayed
             jQuery.post("pomodoroCount.php", {}, function(data) {
               jQuery("#displayedCount").html(data);
