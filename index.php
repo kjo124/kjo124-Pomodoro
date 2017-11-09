@@ -74,7 +74,7 @@ document.getElementById("resetBtn").disabled = true;
      </form>
    </td>
    <td>
-     <form action="">
+     <form>
        <input type="text" name="specificAssignment">
      </form>
    </td>
