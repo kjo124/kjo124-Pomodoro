@@ -10,8 +10,8 @@
 <br>
 <?php
 // Display all sqlite tables
-    $db = new SQLite3('pomorodo.db');
-    $tablesquery = $db->query("SELECT * FROM pomodoro");
+    $dbh = new PDO("sqlite:./pomodoro.db");
+    $tablesquery = $dbh->query("SELECT * FROM pomodoros");
 
     while ($table = $tablesquery->fetchArray(SQLITE3_ASSOC)) {
         if ($table['name'] != "sqlite_sequence") {
