@@ -11,10 +11,25 @@
 <?php
 // Display all sqlite tables
     $dbh = new PDO("sqlite:./pomodoro.db");
-		$sql= mysqli_query("SELECT * FROM users");
-		while($result= mysqli_fetch_array($sql)) {
-    	echo $result['fname']." ".$result['sname'] . '<br>';
-		}
+		$sql = 'SELECT * from page';
+		$result = $dbh->query($sql);
+		$rows = $result->fetchAll(PDO::FETCH_ASSOC);
+
+		if(count($result)) {
+    	echo '<table><tr>';
+    	foreach ($rows[0] as $columnName => $value) {
+        echo '<th>' . $columnName . '</th>';
+    	}
+    	echo '</tr>';
+    	foreach ($rows as $row) {
+        echo '<tr>';
+        foreach ($row as $value) {
+            echo '<td>' . $value . '</td>';
+        }
+        echo '<tr>';
+    }
+    echo '</table>';
+}
 ?>
 
 
