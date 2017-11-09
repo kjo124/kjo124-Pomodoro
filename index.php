@@ -211,7 +211,7 @@ function countdown( elementName, seconds ){
           // add a pomodoro
           type: "POST",
           url: "databaseAdd.php",
-          result: ({class: classChosen, type: assignmentType, assignment: specificAssignment})
+          result: ({class: classChosen, type: assignmentType, assignment: specificAssignment}),
           // if that succeded
           success: function(result){
             console.log(result);
