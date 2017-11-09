@@ -208,16 +208,16 @@ function countdown( elementName, seconds ){
       if (pomodoroBool) {
 
         $.ajax({
-          var a = document.getElementById('classASDA').value;
-          var b = document.getElementById('assASDA').value;
-          var c = document.getElementById('specASDA').value;
+          // var a = document.getElementById('classASDA').value;
+          // var b = document.getElementById('assASDA').value;
+          // var c = document.getElementById('specASDA').value;
           // add a pomodoro
           type: "POST",
           url: "databaseAdd.php",
           toGive: (
-            {class: a,
-              type: b,
-              assignment: c}),
+            {class: document.getElementById('classASDA').value,
+              type: document.getElementById('assASDA').value,
+              assignment: document.getElementById('specASDA').value}),
           // if that succeded
           success: function(result, toGive){
             console.log(result);
