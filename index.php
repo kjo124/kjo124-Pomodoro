@@ -122,10 +122,16 @@ function countdown( elementName, seconds ){
 
       // Do an ajax call instead
       // https://stackoverflow.com/a/12498905
+      // $.ajax({
+      //   url: 'databaseAdd.php',
+      //   success: function(data) {
+      //     $('.result').html(data);
+      //   }
+      // });
       $.ajax({
-        url: 'databaseAdd.php',
-        success: function(data) {
-          $('.result').html(data);
+        url: "databaseAdd.php",
+        success: function(result){
+          // $("#div1").html(result);
         }
       });
 
