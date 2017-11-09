@@ -219,7 +219,7 @@ function countdown( elementName, seconds ){
               type: document.getElementById('assASDA').value,
               assignment: document.getElementById('specASDA').value}),
           // if that succeded
-          success: function(result, toGive){
+          success: function( toGive, result){
             console.log(toGive);
             console.log(result);
             // update the count displayed
