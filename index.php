@@ -220,6 +220,7 @@ function countdown( elementName, seconds ){
               assignment: document.getElementById('specASDA').value}),
           // if that succeded
           success: function(result, toGive){
+            console.log(toGive);
             console.log(result);
             // update the count displayed
             jQuery.post("pomodoroCount.php", {}, function(data) {
