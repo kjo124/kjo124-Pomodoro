@@ -133,6 +133,9 @@ function countdown( elementName, seconds ){
           // $("#div1").html(result);
         }
       });
+      jQuery.post("pomodoroCount.php", {}, function(data) {
+    		jQuery("#outp1").html(data);
+    	})
 
 
 
