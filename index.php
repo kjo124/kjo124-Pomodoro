@@ -130,7 +130,9 @@ function countdown( elementName, seconds ){
       $.ajax({
         url: "databaseAdd.php",
         success: function(result){
-          // $("#div1").html(result);
+          jQuery.post("pomodoroCount.php", {}, function(data) {
+            jQuery("#outp1").html(data);
+          });
         }
       });
 
@@ -149,9 +151,9 @@ function countdown( elementName, seconds ){
           timesPlayed++;
         }
       }
-      jQuery.post("pomodoroCount.php", {}, function(data) {
-    		jQuery("#outp1").html(data);
-    	});
+
+
+
       timerElement.innerHTML = "0:00";
     } else {
       time = new Date( msLeft );
