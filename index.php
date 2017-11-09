@@ -38,14 +38,19 @@ document.getElementById("resetBtn").disabled = true;
   <source src="chime.mp3" type="audio/mpeg">
 </audio>
 
-<?php
-  echo '<br>';
-  $dbh = new PDO("sqlite:./pomodoro.db");
-	$pomodoro_num = $dbh->query("SELECT count(*) FROM pomodoros");
-	echo "Number of pomodoros completed: " . $pomodoro_num->fetchColumn() . '<br />';
-?>
+
+<p>
+	Number of pomodoros completed: <span id="outp1"> ... </span>
+</p>
 
 <script>
+
+jQuery(document).ready(function() {
+	jQuery.post("animalia.php", {}, function(data) {
+		jQuery("#outp1").html(data);
+	})
+});
+
 var chime = document.getElementById("audio");
 var timeout;
 
@@ -122,12 +127,6 @@ function countdown( elementName, seconds ){
 
       // Do an ajax call instead
       // https://stackoverflow.com/a/12498905
-      // $.ajax({
-      //   url: 'databaseAdd.php',
-      //   success: function(data) {
-      //     $('.result').html(data);
-      //   }
-      // });
       $.ajax({
         url: "databaseAdd.php",
         success: function(result){
