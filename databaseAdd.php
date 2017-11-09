@@ -17,6 +17,6 @@
   // CREATE TABLE pomodoros (startDate date, startTime time, class varchar(50), type varchar(250), assignment varchar(250));
   // insert into pomodoros values("2017-1-1", "12:00:13", "CS356", "Quiz", "Quiz 1");
 
-  $sql = "insert into pomodoros values("$startDate", "$startTime", "$class", "$type", "$assignment");";
+  $sql = "insert into pomodoros values('$startDate', '$startTime', '$class', '$type', '$assignment');
   $status = $dbh->exec($sql);
  ?>
