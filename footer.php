@@ -9,16 +9,16 @@
 <br>
 <br>
 <?php
-$dbh = new PDO("sqlite:./pomodoro.db");
-$results =  $dbh -> query("SELECT * FROM pomodoros");
+// Display all sqlite tables
+    $db = new SQLite3('pomorodo.db');
+    $tablesquery = $db->query("SELECT * FROM pomodoros");
 
-while ($row = mysql_fetch_array($results)) {
-    echo '<tr>';
-    foreach($row as $field) {
-        echo '<td>' . htmlspecialchars($field) . '</td>';
+    while ($table = $tablesquery->fetchArray(SQLITE3_ASSOC)) {
+        if ($table['name'] != "sqlite_sequence") {
+            echo $table['name'] . ' <br />';
+        }
     }
-    echo '</tr>';
-}
- ?>
+?>
+
 
 </html>
