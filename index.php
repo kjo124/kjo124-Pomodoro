@@ -206,11 +206,15 @@ function countdown( elementName, seconds ){
     if ( msLeft < 1000 ) {
       // when a pomodoro is being done:
       if (pomodoroBool) {
+
         $.ajax({
           // add a pomodoro
+          type: "POST",
           url: "databaseAdd.php",
+          result: ({class: classChosen, type: assignmentType, assignment: specificAssignment})
           // if that succeded
           success: function(result){
+            console.log(result);
             // update the count displayed
             jQuery.post("pomodoroCount.php", {}, function(data) {
               jQuery("#displayedCount").html(data);
