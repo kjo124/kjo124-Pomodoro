@@ -41,7 +41,7 @@ document.getElementById("resetBtn").disabled = true;
 <br>
 <br>
 <div class="table">
-<table>
+<table align="center" cellpadding="10">
  <tr>
    <th>Class</th>
    <th>Assignment Type</th>
