@@ -39,16 +39,46 @@ document.getElementById("resetBtn").disabled = true;
 </audio>
 
 <br>
-<form action="">
-  <select name="classes" onchange="">
-    <option value="">Select a Class:</option>
-    <option value="CS314">CS314</option>
-    <option value="CS356">CS356</option>
-    <option value="CS370">CS370</option>
-    <option value="CS370">CT320</option>
-    <option value="MKT305">MKT305</option>
-  </select>
-</form>
+<br>
+<table>
+ <tr>
+   <th>Class</th>
+   <th>Assignment Type</th>
+   <th>Specific Assignment</th>
+ </tr>
+ <tr>
+   <td>
+     <form action="">
+       <select name="classes" onchange="">
+         <option value=""></option>
+         <option value="CS314">CS314</option>
+         <option value="CS356">CS356</option>
+         <option value="CS370">CS370</option>
+         <option value="CS370">CT320</option>
+         <option value="MKT305">MKT305</option>
+         <option value="Personal">Personal</option>
+       </select>
+     </form>
+   </td>
+   <td>
+     <form action="">
+       <select name="assignmentType" onchange="">
+         <option value=""></option>
+         <option value="Homework">Homework</option>
+         <option value="Quiz">Quiz</option>
+         <option value="Study">Study</option>
+         <option value="Personal">Personal</option>
+         <option value="Other">Other</option>
+       </select>
+     </form>
+   </td>
+   <td>
+     <form action="">
+       <input type="text" name="specificAssignment">
+     </form>
+   </td>
+ </tr>
+</table>
 <br>
 
 <p>
