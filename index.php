@@ -40,6 +40,7 @@ document.getElementById("resetBtn").disabled = true;
 
 <br>
 <br>
+<div class="table">
 <table>
  <tr>
    <th>Class</th>
@@ -79,6 +80,7 @@ document.getElementById("resetBtn").disabled = true;
    </td>
  </tr>
 </table>
+</div>
 <br>
 
 <p>
