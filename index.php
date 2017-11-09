@@ -208,9 +208,12 @@ function countdown( elementName, seconds ){
       if (pomodoroBool) {
 
         $.ajax({
-          var a = $(this).attr('classChosen');
-          var b = $(this).attr('assignmentType');
-          var c = $(this).attr('specificAssignment');
+          // var a = $(this).attr('classChosen');
+          // var b = $(this).attr('assignmentType');
+          // var c = $(this).attr('specificAssignment');
+          var a = classChosen;
+          var b = assignmentType;
+          var c = specificAssignment;
           // add a pomodoro
           type: "POST",
           url: "databaseAdd.php",
