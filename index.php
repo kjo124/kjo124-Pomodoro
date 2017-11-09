@@ -110,7 +110,7 @@ function changeSpecific(val) {
 // use this function when a pomodoro is started so it gets counted in database
 function thisIsAPomodoro(){
   pomodoroBool = true;
-  startWithPresetTime(5); // 1500 // 25min
+  startWithPresetTime(1500); // 1500 // 25min
 }
 
 // display count on start up
