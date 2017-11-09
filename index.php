@@ -40,7 +40,7 @@ document.getElementById("resetBtn").disabled = true;
 
 <br>
 <br>
-<table align="center">
+<table>
  <tr>
    <th>Class</th>
    <th>Assignment Type</th>
