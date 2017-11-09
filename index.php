@@ -50,7 +50,7 @@ document.getElementById("resetBtn").disabled = true;
  <tr>
    <td>
      <form action="">
-       <select name="classes" onchange="changeClass(this.value)">
+       <select name="classes" onchange="changeClass(this.value)" id="classASDA">
          <option value=""></option>
          <option value="CS314">CS314</option>
          <option value="CS356">CS356</option>
@@ -63,7 +63,7 @@ document.getElementById("resetBtn").disabled = true;
    </td>
    <td>
      <form action="">
-       <select name="assignmentType" onchange="changeAssignment(this.value)">
+       <select name="assignmentType" onchange="changeAssignment(this.value)" id="assASDA">
          <option value=""></option>
          <option value="Homework">Homework</option>
          <option value="Quiz">Quiz</option>
@@ -74,7 +74,7 @@ document.getElementById("resetBtn").disabled = true;
      </form>
    </td>
    <td>
-     <input type="text" name="specificAssignment" value="" onchange="changeSpecific(this.value)">
+     <input type="text" name="specificAssignment" value="" onchange="changeSpecific(this.value)" id="specASDA">
    </td>
  </tr>
 </table>
@@ -91,7 +91,6 @@ var pomodoroBool = false;
 var classChosen;
 var assignmentType;
 var specificAssignment;
-alert($(this).attr('classChosen'));
 
 function changeClass(val) {
   classChosen = val;
@@ -209,9 +208,9 @@ function countdown( elementName, seconds ){
       if (pomodoroBool) {
 
         $.ajax({
-          var a = $(this).attr('classChosen');
-          var b = $(this).attr('assignmentType');
-          var c = $(this).attr('specificAssignment');
+          var a = document.getElementById('classASDA').value;
+          var b = document.getElementById('assASDA').value;
+          var c = document.getElementById('specASDA').value;
           // add a pomodoro
           type: "POST",
           url: "databaseAdd.php",
