@@ -15,7 +15,7 @@
 <br>
 
 <!-- Provide a Start Button to initiate the countdown timer. -->
-<button onclick="stopAndStartTimer()" id="startBtn">Start with custom time</button>
+<button onclick="customTime()" id="startBtn">Start with custom time</button>
 
 <!-- Provide reset button which stops the timer and clears both in the input and time remaining displays. -->
 <button onclick="forcedStopTimer()" id="resetBtn">Reset</button>
@@ -28,8 +28,8 @@ document.getElementById("resetBtn").disabled = true;
 <br>
 
 <button onclick="thisIsAPomodoro()" id="pomodoroBtn">Pomodoro</button>
-<button onclick="fixedStopAndStartTimer(300)" id="sbBtn">Short Break</button>
-<button onclick="fixedStopAndStartTimer(600)" id="lbBtn">Long Break</button>
+<button onclick="startWithPresetTime(300)" id="sbBtn">Short Break</button>
+<button onclick="startWithPresetTime(600)" id="lbBtn">Long Break</button>
 
 <!-- Hidden audio element for chime -->
 <audio hidden id="audio" controls>
@@ -40,26 +40,30 @@ document.getElementById("resetBtn").disabled = true;
 
 
 <p>
-	Number of pomodoros completed: <span id="outp1"> ... </span>
+	Number of pomodoros completed: <span id="displayedCount"> ... </span>
 </p>
 
 <script>
 var pomodoroBool = false;
+
+// use this function when a pomodoro is started so it gets counted in database
 function thisIsAPomodoro(){
   pomodoroBool = true;
-  fixedStopAndStartTimer(5); //1500
+  startWithPresetTime(1500); // 25min
 }
 
+// display count on start up
 jQuery(document).ready(function() {
 	jQuery.post("pomodoroCount.php", {}, function(data) {
-		jQuery("#outp1").html(data);
+		jQuery("#displayedCount").html(data);
 	})
 });
 
 var chime = document.getElementById("audio");
 var timeout;
 
-function stopAndStartTimer(){
+// used only for custom time
+function customTime(){
   // The Start Button must be disabled during countdown; only the Reset Button should be enabled.
   stopTimer();
   var getMin = document.getElementById('minAmount').value;
@@ -74,7 +78,7 @@ function stopAndStartTimer(){
   countdown( 'timer', getSec );
 }
 
-function fixedStopAndStartTimer(seconds){
+function startWithPresetTime(seconds){
   // The Start Button must be disabled during countdown; only the Reset Button should be enabled.
   stopTimer();
   var getSec = seconds;
@@ -108,16 +112,13 @@ function stopTimer() {
   clearTimeout(timeout);
 }
 
+// only done on reset button press, needed for partial pomodoros (they should
+//    be uncounted)
 function forcedStopTimer() {
   if (pomodoroBool) {
     pomodoroBool = false;
   }
-  document.getElementById("startBtn").disabled = false;
-  document.getElementById("resetBtn").disabled = true;
-  document.getElementById( "timer" ).innerHTML = "0:00"
-  document.title = "Pomodoro Timer";
-  // Use clearTimeout()functionality of JavaScript when reseting the timer.
-  clearTimeout(timeout);
+  stopTimer();
 }
 
 
@@ -142,16 +143,22 @@ function countdown( elementName, seconds ){
   function updateTimer(){
     msLeft = timerOver - (+new Date);
     if ( msLeft < 1000 ) {
+      // when a pomodoro is being done:
       if (pomodoroBool) {
         $.ajax({
+          // add a pomodoro
           url: "databaseAdd.php",
+          // if that succeded
           success: function(result){
+            // update the count displayed
             jQuery.post("pomodoroCount.php", {}, function(data) {
-              jQuery("#outp1").html(data);
+              jQuery("#displayedCount").html(data);
             });
           }
         });
       }
+
+      // reset pomodoroBool
       pomodoroBool = false;
 
       document.title = "Times Up!"
@@ -166,8 +173,6 @@ function countdown( elementName, seconds ){
           timesPlayed++;
         }
       }
-
-
 
       timerElement.innerHTML = "0:00";
     } else {
