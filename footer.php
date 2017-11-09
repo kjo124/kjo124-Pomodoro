@@ -11,7 +11,7 @@
 <?php
 // Display all sqlite tables
     $db = new SQLite3('pomorodo.db');
-    $tablesquery = $db->query("SELECT * FROM pomodoros");
+    $tablesquery = $db->query("SELECT * FROM pomodoro");
 
     while ($table = $tablesquery->fetchArray(SQLITE3_ASSOC)) {
         if ($table['name'] != "sqlite_sequence") {
