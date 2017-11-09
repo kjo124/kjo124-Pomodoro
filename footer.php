@@ -11,13 +11,10 @@
 <?php
 // Display all sqlite tables
     $dbh = new PDO("sqlite:./pomodoro.db");
-    $tablesquery = $dbh->query("SELECT * FROM pomodoros");
-
-    while ($table = $tablesquery->fetchArray(SQLITE3_ASSOC)) {
-        if ($table['name'] != "sqlite_sequence") {
-            echo $table['name'] . ' <br />';
-        }
-    }
+		$sql= mysqli_query("SELECT * FROM users");
+		while($result= mysqli_fetch_array($sql)) {
+    	echo $result['fname']." ".$result['sname'] . '<br>';
+		}
 ?>
 
 
