@@ -122,14 +122,14 @@ function countdown( elementName, seconds ){
 
       // Do an ajax call instead
       // https://stackoverflow.com/a/12498905
+      $.ajax({
+        url: 'databaseAdd.php',
+        success: function(data) {
+          $('.result').html(data);
+        }
+      });
 
 
-      // // add one to database
-      // <?php
-      //   $date = date('Y-m-d g:i:s');
-      //   $sql = "insert into pomodoros values('$date');";
-      //   $status = $dbh->exec($sql);
-      //  ?>
 
       document.title = "Times Up!"
       var timesPlayed = 0;
