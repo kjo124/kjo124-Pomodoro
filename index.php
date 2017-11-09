@@ -211,9 +211,9 @@ function countdown( elementName, seconds ){
           // add a pomodoro
           type: "POST",
           url: "databaseAdd.php",
-          result: ({class: 'classChosen', type: assignmentType, assignment: specificAssignment}),
+          toGive: ({class: classChosen, type: assignmentType, assignment: specificAssignment}),
           // if that succeded
-          success: function(result){
+          success: function(result, toGive){
             console.log(result);
             // update the count displayed
             jQuery.post("pomodoroCount.php", {}, function(data) {
