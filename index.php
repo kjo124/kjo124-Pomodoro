@@ -50,7 +50,7 @@ document.getElementById("resetBtn").disabled = true;
  <tr>
    <td>
      <form action="">
-       <select name="classes" onchange="">
+       <select name="classes" onchange="changeClass(this.value)">
          <option value=""></option>
          <option value="CS314">CS314</option>
          <option value="CS356">CS356</option>
@@ -63,7 +63,7 @@ document.getElementById("resetBtn").disabled = true;
    </td>
    <td>
      <form action="">
-       <select name="assignmentType" onchange="">
+       <select name="assignmentType" onchange="changeAssignment(this.value)">
          <option value=""></option>
          <option value="Homework">Homework</option>
          <option value="Quiz">Quiz</option>
@@ -74,9 +74,7 @@ document.getElementById("resetBtn").disabled = true;
      </form>
    </td>
    <td>
-     <form>
-       <input type="text" name="specificAssignment">
-     </form>
+     <input type="text" name="specificAssignment" value="" onchange="changeSpecific(this.value)">
    </td>
  </tr>
 </table>
@@ -89,6 +87,10 @@ document.getElementById("resetBtn").disabled = true;
 
 <script>
 var pomodoroBool = false;
+
+function changeSpecific(val) {
+    alert("The input value has changed. The new value is: " + val);
+}
 
 // use this function when a pomodoro is started so it gets counted in database
 function thisIsAPomodoro(){
