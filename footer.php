@@ -16,7 +16,7 @@
 		$rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
 		if(count($result)) {
-    	echo '<table><tr>';
+    	echo '<table align="center" border-bottom="1px" ><tr>';
     	foreach ($rows[0] as $columnName => $value) {
         echo '<th>' . $columnName . '</th>';
     	}
