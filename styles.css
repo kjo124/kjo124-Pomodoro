@@ -18,6 +18,14 @@ div.jumbotron{
 	margin-bottom:0;
 }
 
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+}
+
 div.footer{
 	background-color: #B7CA79;
 	padding: 1em 1em 1em 1em;
