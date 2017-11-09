@@ -94,17 +94,17 @@ var specificAssignment;
 
 function changeClass(val) {
   classChosen = val;
-  console.log("classChosen: ".classChosen);
+  console.log("classChosen: "+classChosen);
 }
 
 function changeAssignment(val) {
   assignmentType = val;
-  console.log("assignmentType: ".assignmentType);
+  console.log("assignmentType: "+assignmentType);
 }
 
 function changeSpecific(val) {
   specificAssignment = val;
-  console.log("specificAssignment: ".specificAssignment);
+  console.log("specificAssignment: "+specificAssignment);
 }
 
 // use this function when a pomodoro is started so it gets counted in database
