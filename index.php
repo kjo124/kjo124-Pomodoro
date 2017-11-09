@@ -38,6 +38,18 @@ document.getElementById("resetBtn").disabled = true;
   <source src="chime.mp3" type="audio/mpeg">
 </audio>
 
+<br>
+<form action="">
+  <select name="classes" onchange="">
+    <option value="">Select a Class:</option>
+    <option value="CS314">CS314</option>
+    <option value="CS356">CS356</option>
+    <option value="CS370">CS370</option>
+    <option value="CS370">CT320</option>
+    <option value="MKT305">MKT305</option>
+  </select>
+</form>
+<br>
 
 <p>
 	Number of pomodoros completed: <span id="displayedCount"> ... </span>
