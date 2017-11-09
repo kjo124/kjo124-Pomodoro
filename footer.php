@@ -11,7 +11,7 @@
 <?php
 // Display all sqlite tables
     $dbh = new PDO("sqlite:./pomodoro.db");
-		$sql = 'SELECT * from page';
+		$sql = 'SELECT * from pomodoros';
 		$result = $dbh->query($sql);
 		$rows = $result->fetchAll(PDO::FETCH_ASSOC);
 
