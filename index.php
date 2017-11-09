@@ -18,7 +18,7 @@
 <button onclick="stopAndStartTimer()" id="startBtn">Start with custom time</button>
 
 <!-- Provide reset button which stops the timer and clears both in the input and time remaining displays. -->
-<button onclick="stopTimer()" id="resetBtn">Reset</button>
+<button onclick="forcedStopTimer()" id="resetBtn">Reset</button>
 
 <script>
 document.getElementById("startBtn").disabled = false;
@@ -47,7 +47,7 @@ document.getElementById("resetBtn").disabled = true;
 var pomodoroBool = false;
 function thisIsAPomodoro(){
   pomodoroBool = true;
-  fixedStopAndStartTimer(1500);
+  fixedStopAndStartTimer(5); //1500
 }
 
 jQuery(document).ready(function() {
@@ -107,6 +107,19 @@ function stopTimer() {
   // Use clearTimeout()functionality of JavaScript when reseting the timer.
   clearTimeout(timeout);
 }
+
+function forcedStopTimer() {
+  if (pomodoroBool) {
+    pomodoroBool = false;
+  }
+  document.getElementById("startBtn").disabled = false;
+  document.getElementById("resetBtn").disabled = true;
+  document.getElementById( "timer" ).innerHTML = "0:00"
+  document.title = "Pomodoro Timer";
+  // Use clearTimeout()functionality of JavaScript when reseting the timer.
+  clearTimeout(timeout);
+}
+
 
 function countdown( elementName, seconds ){
   var element, timerOver, hours, mins, msLeft, time, secs;
