@@ -88,8 +88,23 @@ document.getElementById("resetBtn").disabled = true;
 <script>
 var pomodoroBool = false;
 
+var classChosen;
+var assignmentType;
+var specificAssignment;
+
+function changeClass(val) {
+  classChosen = val;
+  console.log("classChosen: ".classChosen);
+}
+
+function changeAssignment(val) {
+  assignmentType = val;
+  console.log("assignmentType: ".assignmentType);
+}
+
 function changeSpecific(val) {
-    alert("The input value has changed. The new value is: " + val);
+  specificAssignment = val;
+  console.log("specificAssignment: ".specificAssignment);
 }
 
 // use this function when a pomodoro is started so it gets counted in database
