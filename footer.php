@@ -10,8 +10,7 @@
 <br>
 <?php
 $dbh = new PDO("sqlite:./pomodoro.db");
-$query="SELECT * FROM pomodoros";
-$result =  $dbh -> query($query);
+$results =  $dbh -> query("SELECT * FROM pomodoros");
 
 while ($row = mysql_fetch_array($results)) {
     echo '<tr>';
