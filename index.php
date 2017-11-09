@@ -27,7 +27,7 @@ document.getElementById("resetBtn").disabled = true;
 
 <br>
 
-<button onclick="fixedStopAndStartTimer(1500)" id="pomodoroBtn">Pomodoro</button>
+<button onclick="thisIsAPomodoro()" id="pomodoroBtn">Pomodoro</button>
 <button onclick="fixedStopAndStartTimer(300)" id="sbBtn">Short Break</button>
 <button onclick="fixedStopAndStartTimer(600)" id="lbBtn">Long Break</button>
 
@@ -44,6 +44,11 @@ document.getElementById("resetBtn").disabled = true;
 </p>
 
 <script>
+var pomodoroBool = false;
+function thisIsAPomodoro(){
+  pomodoroBool = true;
+  fixedStopAndStartTimer(1500);
+}
 
 jQuery(document).ready(function() {
 	jQuery.post("pomodoroCount.php", {}, function(data) {
@@ -124,20 +129,17 @@ function countdown( elementName, seconds ){
   function updateTimer(){
     msLeft = timerOver - (+new Date);
     if ( msLeft < 1000 ) {
-
-      // Do an ajax call instead
-      // https://stackoverflow.com/a/12498905
-      $.ajax({
-        url: "databaseAdd.php",
-        success: function(result){
-          jQuery.post("pomodoroCount.php", {}, function(data) {
-            jQuery("#outp1").html(data);
-          });
-        }
-      });
-
-
-
+      if (pomodoroBool) {
+        $.ajax({
+          url: "databaseAdd.php",
+          success: function(result){
+            jQuery.post("pomodoroCount.php", {}, function(data) {
+              jQuery("#outp1").html(data);
+            });
+          }
+        });
+      }
+      pomodoroBool = false;
 
       document.title = "Times Up!"
       var timesPlayed = 0;
