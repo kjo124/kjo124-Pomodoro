@@ -46,7 +46,7 @@ document.getElementById("resetBtn").disabled = true;
 <script>
 
 jQuery(document).ready(function() {
-	jQuery.post("animalia.php", {}, function(data) {
+	jQuery.post("pomodoroCount.php", {}, function(data) {
 		jQuery("#outp1").html(data);
 	})
 });
