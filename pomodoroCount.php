@@ -12,5 +12,6 @@
     //assuming PDO
     print_r($dbh->errorInfo());
   }
+  $count+=113;
   echo json_encode ($count);
 ?>

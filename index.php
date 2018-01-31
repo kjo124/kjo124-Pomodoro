@@ -52,11 +52,10 @@ document.getElementById("resetBtn").disabled = true;
      <form action="">
        <select name="classes" onchange="changeClass(this.value)" id="classASDA">
          <option value=""></option>
-         <option value="CS314">CS314</option>
-         <option value="CS356">CS356</option>
-         <option value="CS370">CS370</option>
-         <option value="CS370">CT320</option>
-         <option value="MKT305">MKT305</option>
+         <option value="CS414">CS414</option>
+         <option value="CS430">CS430</option>
+         <option value="FIN305">FIN305</option>
+         <option value="JTC413">JTC413</option>
          <option value="Personal">Personal</option>
        </select>
      </form>
