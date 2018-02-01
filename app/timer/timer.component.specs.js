@@ -28,7 +28,7 @@ describe('timer', function() {
           expect(scope.buttonText).toBe('Stop');
 
           // stops the time out
-          $timeout.flush(3000); // not sure why this doubles to 6 seconds
+          $timeout.flush(6000); 
           expect($timeout.verifyNoPendingTasks).toThrow();
           scope.takeAction();
           expect(scope.displayedTimer).toBe("24:54");
@@ -40,7 +40,7 @@ describe('timer', function() {
           scope.takeAction();
           expect(scope.stopped).toBe(false);
           expect(scope.buttonText).toBe('Stop');
-          $timeout.flush(3000);
+          $timeout.flush(6000);
           expect(scope.displayedTimer).toBe("24:48");
           expect(scope.counter).toBe(1488);
     }));
