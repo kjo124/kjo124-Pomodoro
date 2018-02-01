@@ -4,7 +4,7 @@ describe('timer', function() {
 
   // Load the module that contains the `phoneList` component before each test
   var $timeout;
-  beforeEach(module('timerApp'));
+  beforeEach(module('timer'));
   beforeEach(inject(function(_$timeout_) {
   $timeout = _$timeout_;
   }));

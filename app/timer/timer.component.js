@@ -2,11 +2,9 @@
 
 // Register `phoneList` component, along with its associated controller and template
 angular.
-  module('timerApp').
+  module('timer').
   component('timer', {
-    template:
-        '{{displayedTimer}}' +
-        '<p><button ng-click="takeAction()">{{buttonText}}</button> <p>',
+    templateUrl: 'timer/timer.template.html',
     controller: function timerController($scope,$timeout) {
         $scope.counter = 1500;
         $scope.stopped = true;
