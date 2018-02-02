@@ -9,3 +9,7 @@ angular.module('recordsApp', [
   // ...which depends on the `timer` module
   'records'
 ]);
+angular.module('addApp', [
+  // ...which depends on the `timer` module
+  'add'
+]);
