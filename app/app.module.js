@@ -9,6 +9,7 @@ angular.module('recordsApp', [
   // ...which depends on the `timer` module
   'records'
 ]);
+//  bug here
 angular.module('addApp', [
   // ...which depends on the `timer` module
   'add'
