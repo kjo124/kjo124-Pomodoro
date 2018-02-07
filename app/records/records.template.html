@@ -1,2 +1,31 @@
 
 <p> Records displayed here <p>
+<style type="text/css">
+  table.foobar {
+    border: solid black 1px;
+  }
+  table.foobar th, td {
+    text-align: center;
+    padding: 10px;
+    border: solid black 1px;
+  }
+</style>
+
+<table class="foobar" cellpadding="0" cellspacing="0" align="center">
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Type</th>
+    <th>Class</th>
+    <th>Assignment</th>
+  </tr>
+
+  <tr ng-repeat="record in $ctrl.records">
+    <td>{{record.startDate}}</td>
+    <td>{{record.startTime}}</td>
+    <td>{{record.type}}</td>
+    <td><b>{{record.class}}</b></td>
+    <td><b>{{record.assignment}}</b></td>
+  </tr>
+
+</table>
