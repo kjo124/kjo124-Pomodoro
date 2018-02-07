@@ -5,8 +5,8 @@ angular.
   module('timer').
   component('timer', {
     templateUrl: 'timer/timer.template.html',
-    controller: function timerController($scope,$timeout) {
-        $scope.counter = 1500;
+    controller: function timerController($scope,$timeout,$http) {
+        $scope.counter = 5;
         $scope.stopped = true;
         $scope.buttonText='Start';
         $scope.displayedTimer = "00:00";
@@ -27,6 +27,25 @@ angular.
             } else {
               alert("Time is up!");
               $scope.buttonText='Restart';
+              $http({
+                url: "records/databaseAdd.php",
+                method: "POST",
+                data: {
+                  class:"foo",
+                  type:"foo",
+                  assignment:"foo"
+                }
+              }).then(function successCallback(response) {
+                // this callback will be called asynchronously
+                // when the response is available
+                $scope.data = response.data;
+                console.log(data);
+              }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                console.log("error");
+                $scope.error = response.statusText;
+              });
             }
           }
         }
