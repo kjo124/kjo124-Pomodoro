@@ -34,7 +34,7 @@ def addToDatabase(startDate,startTime,thisClass,thisType,assignment):
     # every time you add a row might as well regenerate the JSON while were connected
     c.execute("select * from pomodoros")
     results = c.fetchall()
-    with open('records.json', 'w') as outfile:
+    with open('records/records.json', 'w') as outfile:
         json.dump(results, outfile)
 
 conn.row_factory = json_factory
