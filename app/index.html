@@ -43,9 +43,65 @@
         </div>
       </div>
     </nav>
-
     <div class="content">
-      <timer></timer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+          <timer></timer>
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4">
+          <table class="table table-condensed">
+           <tr>
+             <th>Class</th>
+             <th>Assignment Type</th>
+           </tr>
+           <tr>
+             <td>
+               <form action="">
+                 <select name="classes" onchange="changeClass(this.value)" id="classSelect">
+                   <option value=""></option>
+                   <option value="CS414">CS414</option>
+                   <option value="CS430">CS430</option>
+                   <option value="FIN305">FIN305</option>
+                   <option value="JTC413">JTC413</option>
+                   <option value="Personal">Personal</option>
+                 </select>
+               </form>
+             </td>
+             <td>
+               <form action="">
+                 <select name="assignmentType" onchange="changeAssignment(this.value)" id="assSelect">
+                   <option value=""></option>
+                   <option value="Homework">Homework</option>
+                   <option value="Quiz">Quiz</option>
+                   <option value="Study">Study</option>
+                   <option value="Personal">Personal</option>
+                   <option value="Other">Other</option>
+                 </select>
+               </form>
+             </td>
+           </tr>
+          </table>
+          <table class="table table-condensed">
+           <tr>
+             <th>Specific Assignment</th>
+           </tr>
+             <td>
+               <input type="text" name="specificAssignment" value="" onchange="changeSpecific(this.value)" id="specSelect">
+             </td>
+           </tr>
+          </table>
+        </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+      </div>
+    </div>
     </div>
 
   </body>

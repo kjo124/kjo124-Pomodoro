@@ -1,5 +1,9 @@
 /* Colors: #BDDBA3, #677E52, #B7CA79, #F6E8B1, #89725B */
 
+.table th, td {
+	text-align: center;
+}
+
 div.content{
 	padding-top: 1em;
 	text-align: center;

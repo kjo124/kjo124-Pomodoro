@@ -23,6 +23,7 @@
     <div class="col-md-2">
       Search: <input ng-model="$ctrl.query" />
       <br></br>
+      <p>Number displayed: {{filtered.length}} </p>
     </div>
     <div class="col-md-10">
       <div class="table-responsive">
@@ -37,7 +38,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="record in $ctrl.records | filter:$ctrl.query">
+            <tr ng-repeat="record in $ctrl.records | filter:$ctrl.query as filtered">
               <td>{{record.startDate}}</td>
               <td>{{record.startTime}}</td>
               <td>{{record.type}}</td>
