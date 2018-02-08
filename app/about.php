@@ -43,7 +43,23 @@
     </nav>
 
     <div class="content">
-      <p>About Content Here</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8">
+            <h3>What is a Pomodoro?</h3>
+            <p>The
+              <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Pomodoro Technique</a>
+              is a time managment method where the user sets a timer for 25 minutes and works during that time. The work is uninteruptible and extremely focused. Once the timer has been completed, you may take a break.
+            </p>
+            <p>Keeping track of Pomodoros (Each 25 minute work time) can be very useful for planning out your time in the future.</p>
+            <h3>Who made this?</h3>
+            <p>I am Kyle Odin, a soon graduate of CSU for Applied Computing Technology. You can find the code for this site <a href="https://github.com/kjo124/kjo124-Pomodoro">here</a>.</p>
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Il_pomodoro.jpg"/>
+          </div>
+        </div>
+      </div>
     </div>
 
   </body>
