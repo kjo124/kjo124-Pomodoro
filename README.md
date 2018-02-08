@@ -13,3 +13,5 @@ Login functionality for tracing more than just one user.
 Editing previous pomodoros from site.
 
 Manual addition of pomodoros when offline.
+
+Tests because I'm professional!
