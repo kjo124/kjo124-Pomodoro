@@ -35,10 +35,10 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="about.html">About</a></li>
-            <li><a href="index.html">Timer</a></li>
-            <li class="active"><a href="records.html">Records</a></li>
-            <!-- <li><a href="manualAdd.html">Manual Add</a></li> -->
+            <li><a href="about.php">About</a></li>
+            <li><a href="index.php">Timer</a></li>
+            <li class="active"><a href="records.php">Records</a></li>
+            <!-- <li><a href="manualAdd.php">Manual Add</a></li> -->
             <!-- <li><a href="#">Page 3</a></li> -->
           </ul>
         </div>
