@@ -54,7 +54,16 @@
   </body>
 
   <div class="footer" >
-
+    <script>
+    jQuery(document).ready(function() {
+      jQuery.post("pomodoroCount.php", {}, function(data) {
+        jQuery("#displayedCount").html(data);
+      })
+    });
+    </script>
+    <p>
+      Number of pomodoros completed: <span id="displayedCount"> ... </span>
+    </p>
   </div>
 
 </html>

@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" ng-app="recordsApp">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Records</title>
+    <title>About</title>
     <meta name="Author" content="Kyle Odin">
     <meta name="Description" content="Pomodoro Timer">
     <meta name="Keywords" content="Pomodoro Timer">
@@ -13,14 +13,11 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="app.css" />
     <script src="bower_components/angular/angular.js"></script>
-    <script src="app.module.js"></script>
-    <script src="records/records.module.js"></script>
-    <script src="records/records.component.js"></script>
   </head>
   <body>
     <div class="header">
       <div class="jumbotron">
-          <h1>Records of Pomodoros</h1>
+          <h1>About</h1>
       </div>
     </div>
 
@@ -35,9 +32,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="about.html">About</a></li>
+            <li class="active"><a href="about.html">About</a></li>
             <li><a href="index.html">Timer</a></li>
-            <li class="active"><a href="records.html">Records</a></li>
+            <li><a href="records.html">Records</a></li>
             <!-- <li><a href="manualAdd.html">Manual Add</a></li> -->
             <!-- <li><a href="#">Page 3</a></li> -->
           </ul>
@@ -46,13 +43,22 @@
     </nav>
 
     <div class="content">
-      <records></records>
+      <p>About Content Here</p>
     </div>
 
   </body>
 
-  <div class="footer">
-
+  <div class="footer" >
+    <script>
+    jQuery(document).ready(function() {
+    	jQuery.post("pomodoroCount.php", {}, function(data) {
+    		jQuery("#displayedCount").html(data);
+    	})
+    });
+    </script>
+    <p>
+    	Number of pomodoros completed: <span id="displayedCount"> ... </span>
+    </p>
   </div>
 
 </html>
