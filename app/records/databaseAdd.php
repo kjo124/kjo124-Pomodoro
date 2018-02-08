@@ -18,11 +18,12 @@
   //
   // $sql = "insert into pomodoros values('$startDate', '$startTime', '$class', '$type', '$assignment');";
   // $status = $dbh->exec($sql);
-  $command = 'python3 addToDatabase.py '.'$startDate '.'$startTime '.'$class '.'$type '.'$assignment';
+  $command = "python3 addToDatabase.py '$startDate' '$startTime' '$class' '$type' '$assignment'";
 
   $escaped_command = escapeshellcmd($command);
  
-  $output = shell_exec($command);
+system($escaped_command);
+  //$output = shell_exec($command);
 
-  echo $output;
+//  echo $output;
  ?>

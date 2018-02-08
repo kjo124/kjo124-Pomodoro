@@ -1,4 +1,4 @@
-#! /usr/bin/python3 -Wd
+#! /usr/bin/env python -Wd
 
 # a script for adding new pomodoros to the database, also updates the JSON file
 # for the site when a pomodoro is added
