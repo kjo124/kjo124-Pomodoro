@@ -27,19 +27,20 @@ angular.
             } else {
               alert("Time is up!");
               $scope.buttonText='Restart';
+	      var xsrf = $.param({
+		classArg:document.getElementById('classSelect').value,
+		type:document.getElementById('assSelect').value,
+		assignment:document.getElementById('specSelect').value});
               $http({
                 url: "records/databaseAdd.php",
                 method: "POST",
-                data: {
-                  class:"foo",
-                  type:"foo",
-                  assignment:"foo"
-                }
+                data: xsrf,
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'}
               }).then(function successCallback(response) {
                 // this callback will be called asynchronously
                 // when the response is available
                 $scope.data = response.data;
-                console.log(data);
+                console.log("Success");
               }, function errorCallback(response) {
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
