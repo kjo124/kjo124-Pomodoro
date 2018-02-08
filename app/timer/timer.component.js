@@ -21,7 +21,12 @@ angular.
           var seconds = $scope.counter % 60;
           var minutes = Math.floor($scope.counter / 60);
           $scope.displayedTimer = (z(minutes)+':'+z(seconds));
+	  document.title = (z(minutes)+':'+z(seconds));
         }
+	$scope.playAudio = function() {
+        	var audio = new Audio('audio/chime.mp3');
+        	audio.play();
+    	};
         $scope.onTimeout = function() {
           if (!$scope.stopped) {
             $scope.counter--;
@@ -47,6 +52,7 @@ angular.
                 $scope.error = response.statusText;
               });
 	      }
+	      $scope.playAudio();
               alert("Time is up!");
               $scope.pomodoroButtonText='Start Pomodoro';
 	      $scope.shortButtonText='5 Minute Break';
@@ -54,6 +60,7 @@ angular.
 	      $scope.showPomodoro = true;
 	      $scope.showShort = true;
 	      $scope.showLong = true;
+	      $scope.stopped = true;
             }
           }
         }
