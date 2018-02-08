@@ -28,9 +28,9 @@ def addToDatabase(startDate,startTime,thisClass,thisType,assignment):
     # the entry to be added
     entry = [(startDate, startTime, thisClass, thisType, assignment)]
     # place it into the row
-    # c.executemany("insert into pomodoros values(?, ?, ?, ?, ?)", entry )
+    c.executemany("insert into pomodoros values(?, ?, ?, ?, ?)", entry )
     # save the table
-    # conn.commit()
+    conn.commit()
     # every time you add a row might as well regenerate the JSON while were connected
     c.execute("select * from pomodoros")
     results = c.fetchall()
