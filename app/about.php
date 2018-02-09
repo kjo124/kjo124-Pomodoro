@@ -53,10 +53,10 @@
             </p>
             <p>Keeping track of Pomodoros (each 25 minute work time) can be very useful for planning out your time in the future.</p>
             <h3>Who made this?</h3>
-            <p>I am Kyle Odin, a soon graduate of CSU for Applied Computing Technology. You can find the code for this site <a href="https://github.com/kjo124/kjo124-Pomodoro">here</a>.</p>
+            <p>I am Kyle Odin, a soon graduate of CSU for Applied Computing Technology. You can find the code for this site <a href="https://github.com/kjo124/kjo124-Pomodoro/tree/master/app">here</a>.</p>
           </div>
           <div class="col-sm-4">
-            <img class="img-responsive small hidden-xs" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Il_pomodoro.jpg"/>
+            <img class="img-responsive small hidden-xs img-rounded" src="https://upload.wikimedia.org/wikipedia/commons/3/34/Il_pomodoro.jpg"/>
           </div>
         </div>
       </div>
